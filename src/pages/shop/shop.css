@@ -1,0 +1,98 @@
+ .shop {
+     background-color: #222;
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+     width: 100%;
+ }
+
+ .shopTitle {
+
+     text-align: center;
+     font-size: 40px;
+     color: white
+ }
+
+
+
+ .products {
+
+     width: 100%;
+     height: auto;
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     place-items: center;
+     margin-top: 50px;
+     margin-bottom: 50px;
+
+
+ }
+
+
+
+
+
+ .product img {
+     width: 400px;
+
+ }
+
+ .product .description {
+
+     text-align: center;
+     color: white;
+     line-height: 20px;
+ }
+
+ .products p {
+     color: white;
+     text-align: center;
+     font-size: 30px;
+ }
+
+ .product:hover {
+     transition: 0.3s ease-in;
+     cursor: pointer;
+ }
+
+ .addToCartBttn {
+     background-color: transparent;
+     border: 1px solid white;
+     min-width: 10px;
+     padding-left: 10px;
+     padding-right: 10px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     color: white;
+     border-radius: 15px;
+     margin-bottom: 20px;
+
+
+ }
+
+ .addToCartBttn:hover {
+     box-shadow: 0px 1px 2px white,
+         0px 2px 4px white,
+         0px 4px 8px white,
+         0px 8px 16px white;
+     transform: translateY(-10px);
+     transition: 0.2s;
+
+ }
+
+ .searchBar {
+
+     text-align: center;
+
+ }
+
+ .searchBar input {
+     width: 350px;
+     height: 30px;
+     padding-left: 10px;
+     padding-right: 10px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     border-radius: 15px;
+
+ }
