@@ -4,19 +4,13 @@
     background-color: rgba(23, 22, 22, 0.875);
     display: flex;
     align-items: center;
-    box-shadow: 0px 1px 2px black,
-        0px 2px 4px black,
-        0px 4px 8px black,
-        0px 8px 16px black;
+
 }
 
 .eShop {
     position: relative;
-
     display: flex;
     align-items: center;
-
-
 }
 
 .links {
@@ -32,30 +26,28 @@
 
 .links a:hover {
 
-    color: darkgray;
+    color: gold;
 }
 
 .links a {
     text-decoration: none;
-    color: white;
+    color: wheat;
     font-size: 25px;
 
 }
 
 .eShop a {
     text-decoration: none;
-    color: rgb(255, 255, 255);
-
+    color: wheat;
     font-size: 40px;
     position: fixed;
     top: 20px;
-    left: 40px;
+    left: 50px;
     z-index: 999;
-
 
 
 }
 
 .eShop a:hover {
-    color: darkgray;
+    color: gold;
 }
