@@ -113,7 +113,7 @@
 }
 
 .price p {
-    color: wheat;
+    color: white;
     padding: 20px;
     width: auto;
     height: 50px;
@@ -159,15 +159,29 @@
 
 
 .comments {
-    margin-left: -900px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    align-self: flex-start;
+    margin: 100px;
+
     padding: 20px;
     font-size: 25px;
     box-shadow: 0px 1px 2px wheat,
         0px 2px 4px wheat,
         0px 4px 8px wheat,
         0px 8px 16px wheat;
+    justify-content: center;
+    width: 1700px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.comments li p:nth-child(2) {
+
+
+    background-color: #aaaaaa2c;
+    padding: 10px;
+    border-radius: 20px;
+
+
 }
 
 .angle-links {
@@ -184,9 +198,5 @@
     height: 50px;
     background-color: wheat;
     margin: 10px;
-
-
-
-
 
 }

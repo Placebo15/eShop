@@ -69,9 +69,9 @@ const ProductInfo = () => {
                 <ul>
                     {comments.map((comment, index) => (
                         <li key={index}>
-                            <p style={{ color: "green", fontStyle: "italic" }}>Username: {comment.username}</p>
+                            <p style={{ color: "blue", fontStyle: "italic" }}>Username: {comment.username}</p>
                             <p>Comment: {comment.comment}</p>
-                            <p style={{ color: "darkblue", fontStyle: "italic" }}>Rating: {comment.rating}</p>
+                            <p style={{ color: "white", fontStyle: "italic" }}>Rating: {comment.rating}</p>
                         </li>
                     ))}
                 </ul>

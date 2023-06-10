@@ -35,9 +35,11 @@
     animation: focus-in-contract-bck 2s linear backwards
 }
 
+.shopTitle h1:hover {
+    animation: focus-in-contract-bck 2s linear backwards;
+    cursor: pointer;
 
-
-
+}
 
 
 .products {
@@ -61,6 +63,7 @@
     padding: 20px;
     border-radius: 20px;
 
+
 }
 
 .product .description {
@@ -70,7 +73,7 @@
 }
 
 .products p {
-    color: wheat;
+    color: whitesmoke;
     text-align: center;
     font-size: 30px;
 }
