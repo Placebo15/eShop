@@ -11,10 +11,12 @@ import angle2_2 from './assets/2-2.png';
 import angle2_3 from './assets/2-3.png';
 
 
+
 export const PRODUCTS = [
     {
         id: 1,
         productName: "Iphone 13",
+        category: "Phones",
         price: 999.0,
         productImage: product1,
         productImages: [product1, product2, product3, product6],
@@ -38,6 +40,7 @@ export const PRODUCTS = [
     {
         id: 2,
         productName: "Laptop Asus x550c",
+        category: "Laptops",
         price: 1200.0,
         productImage: product2,
         productImages: [product2, angle2_1, angle2_2, angle2_3],
@@ -56,6 +59,7 @@ export const PRODUCTS = [
     {
         id: 3,
         productName: "Camera Cannon E05",
+        category: "Phones",
         price: 669.0,
         productImage: product3,
         productImages: [product3, product2, product3, product6],
@@ -74,6 +78,7 @@ export const PRODUCTS = [
     {
         id: 4,
         productName: "Van Gogh Denim Jacket",
+        category: "Clothes",
         price: 150.0,
         productImage: product4,
         productImages: [product4, product2, product3, product6],
@@ -92,6 +97,7 @@ export const PRODUCTS = [
     {
         id: 5,
         productName: "LED Strip Lights 65.6FT",
+        category: "Laptops",
         price: 50.0,
         productImage: product5,
         productImages: [product5, product2, product3, product6],
@@ -110,6 +116,7 @@ export const PRODUCTS = [
     {
         id: 6,
         productName: "Don't Trip sweater",
+        category: "Clothes",
         price: 59.99,
         productImage: product6,
         productImages: [product6, product2, product3, product6],
@@ -128,6 +135,7 @@ export const PRODUCTS = [
     {
         id: 7,
         productName: "Golf T-shirt",
+        category: "Clothes",
         price: 36.0,
         productImage: product7,
         productImages: [product7, product2, product3, product6],
@@ -146,6 +154,7 @@ export const PRODUCTS = [
     {
         id: 8,
         productName: "Don't Trip cap",
+        category: "Clothes",
         price: 10.0,
         productImage: product8,
         productImages: [product8, product2, product3, product6],

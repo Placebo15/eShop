@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCart } from 'phosphor-react';
 import { ShopContext } from '../context/shop-context';
@@ -13,6 +13,7 @@ export const Navbar = () => {
         (total, count) => total + count,
         0
     );
+    const menuRef = useRef(null);
 
     useEffect(() => {
         if (cartItemsCount > 0) {
@@ -24,11 +25,31 @@ export const Navbar = () => {
         }
     }, [cartItemsCount]);
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                collapseMenu();
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
     const toggleMenu = () => {
         setTimeout(() => {
             setMenuCollapsed(!menuCollapsed);
-        }, 200); // Add a delay of 200 milliseconds before toggling the menu
+        }, 200);
     };
+
+    const collapseMenu = () => {
+        setMenuCollapsed(true);
+    };
+
+
 
     return (
         <div className="navbar">
@@ -38,16 +59,31 @@ export const Navbar = () => {
 
             <div className={`Menu ${menuCollapsed ? 'collapsed' : ''}`}>
                 <button className="menuButton" onClick={toggleMenu}>
-                    ☰ MENU
+                    ☰
                 </button>
-                <div className="categoryContent">
-                    {/* Add your category links here */}
+                <div className={`categoryContent ${menuCollapsed ? 'collapsed' : ''}`} ref={menuRef}>
+
                     <Link to="/phones">Phone</Link>
-                    <Link to="/TVs">TV</Link>
-                    <Link to="/PCs">Desktop</Link>
+                    <Link to="/clothes">Clothes</Link>
+                    <Link to="/laptops">Laptops</Link>
                     <Link to="/contact">Contact</Link>
                     <Link to="/help">Help</Link>
                     <Link to="/About">About</Link>
+                    <div className="socialIcons">
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                            <FaInstagram />
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                            <FaFacebook />
+                        </a>
+                        <a
+                            href="https://www.google.com/maps/place/your+address+here"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <FaMapMarker />
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -57,15 +93,19 @@ export const Navbar = () => {
                         <FaPhone />
                         <span>123-456-7890</span>
                     </a>
-                    <a href="https://www.instagram.com" target="_blank">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
                         <FaInstagram />
                         <span>Instagram</span>
                     </a>
-                    <a href="https://www.facebook.com" target="_blank">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                         <FaFacebook />
                         <span>Facebook</span>
                     </a>
-                    <a href="https://www.google.com/maps/place/your+address+here" target="_blank">
+                    <a
+                        href="https://www.google.com/maps/place/your+address+here"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <FaMapMarker />
                         <span>123 Main St, City, Country</span>
                     </a>

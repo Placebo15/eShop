@@ -32,12 +32,15 @@
     text-align: center;
     font-size: 40px;
     color: wheat;
-    animation: focus-in-contract-bck 2s linear backwards
+    width: 300px;
+    animation: focus-in-contract-bck 2s linear;
+    align-self: center;
 }
 
 .shopTitle h1:hover {
     animation: focus-in-contract-bck 2s linear backwards;
     cursor: pointer;
+
 
 }
 
