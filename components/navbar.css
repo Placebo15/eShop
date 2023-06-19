@@ -1,0 +1,309 @@
+@keyframes shake-top {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+        transform-origin: 50% 0;
+    }
+
+    10% {
+        transform: rotate(2deg);
+    }
+
+    20%,
+    40%,
+    60% {
+        transform: rotate(-4deg);
+        color: green;
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: rotate(4deg);
+    }
+
+    80% {
+        transform: rotate(-2deg);
+    }
+
+    90% {
+        transform: rotate(2deg);
+    }
+}
+
+body {
+    caret-color: transparent;
+}
+
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(47, 46, 46);
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 999;
+    align-items: center;
+
+}
+
+.links {
+    display: flex;
+
+
+    align-self: center;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+
+
+}
+
+.shopcart {
+
+    z-index: 999;
+    color: white;
+    margin-right: 20px;
+
+}
+
+.links a:hover {
+    color: wheat;
+    animation: jello-vertical 1s linear both;
+}
+
+.shopcart:hover {
+    color: wheat;
+}
+
+.eShop a {
+
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+
+    z-index: 1000;
+
+    margin-left: 20px;
+
+}
+
+.eShop a:hover {
+    color: wheat;
+}
+
+.cartItemCount {
+    position: absolute;
+    top: 9px;
+    right: 15px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    text-decoration: none;
+
+}
+
+.cartIcon.animated {
+    animation: shake-top 1s linear both;
+}
+
+
+
+.socialIcons {
+    margin-top: 200px;
+    justify-content: space-between;
+    display: flex;
+    width: 250px;
+
+}
+
+.menuButton {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 35px;
+
+
+
+}
+
+.Menu {
+
+    position: absolute;
+    left: 200px;
+    top: 20px;
+    z-index: 999;
+
+
+
+
+}
+
+.menuButton:hover {
+    cursor: pointer;
+    color: wheat;
+}
+
+.Menu.collapsed .categoryContent {
+    animation: slide-out-left 0.5s both;
+
+}
+
+.Menu .categoryContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(47, 46, 46) 0%, wheat 100%);
+    width: 350px;
+    position: fixed;
+    top: 80px;
+    height: 850px;
+    left: 0px;
+    padding: 20px;
+    animation: slide-in-left 0.5s linear both;
+}
+
+
+
+
+.Menu .categoryContent a {
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    padding: 10px;
+
+}
+
+.Menu .categoryContent a:hover {
+    color: wheat;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 1200px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .links {
+        flex-direction: column;
+        border: none;
+        margin-top: 20px;
+        z-index: 999;
+    }
+
+    .links a {
+        margin: 0;
+        padding: 10px;
+        display: none;
+    }
+
+    .Menu button {
+
+        position: fixed;
+        left: 15px;
+        top: 15px
+    }
+
+    .Menu.collapsed .categoryContent {
+        animation: slide-out-left 0.5s both;
+
+    }
+
+    .Menu .categoryContent {
+        position: fixed;
+        width: 100%;
+        height: auto;
+        z-index: 999;
+
+
+        padding: 0;
+    }
+
+    .shopcart {
+
+        z-index: 999;
+        color: white;
+        margin-right: 20px;
+        position: fixed;
+        top: 15px;
+        right: 15px
+    }
+
+    .cartItemCount {
+        position: absolute;
+        top: 1px;
+        right: 2px;
+
+
+    }
+
+
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-1000px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes jello-vertical {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    40% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    50% {
+        transform: scale3d(0.85, 1.15, 1);
+    }
+
+    65% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    75% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes slide-out-left {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
