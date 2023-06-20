@@ -61,7 +61,7 @@ export const Navbar = () => {
                 <button className="menuButton" onClick={toggleMenu}>
                     ☰
                 </button>
-                <div className={`categoryContent ${menuCollapsed ? 'collapsed' : ''}`} ref={menuRef}>
+                <div className='categoryContent' ref={menuRef}>
 
                     <Link to="/phones">Phone</Link>
                     <Link to="/clothes">Clothes</Link>
@@ -88,28 +88,28 @@ export const Navbar = () => {
             </div>
 
             <div className="links">
-                <div className="contactInfo">
-                    <a href="tel:+1234567890">
-                        <FaPhone />
-                        <span>123-456-7890</span>
-                    </a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                        <FaInstagram />
-                        <span>Instagram</span>
-                    </a>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                        <FaFacebook />
-                        <span>Facebook</span>
-                    </a>
-                    <a
-                        href="https://www.google.com/maps/place/your+address+here"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <FaMapMarker />
-                        <span>123 Main St, City, Country</span>
-                    </a>
-                </div>
+
+                <a href="tel:+1234567890">
+                    <FaPhone />
+                    <span>123-456-7890</span>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                    <FaInstagram />
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                    <FaFacebook />
+                    <span>Facebook</span>
+                </a>
+                <a
+                    href="https://www.google.com/maps/place/your+address+here"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <FaMapMarker />
+                    <span>123 Main St, City, Country</span>
+                </a>
+
             </div>
 
             <Link className="shopcart" to="/cart">

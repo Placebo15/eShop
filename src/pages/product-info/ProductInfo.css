@@ -60,12 +60,15 @@
     color: wheat;
     background-color: #222;
     align-items: center;
+
 }
 
 .product-info-container h2 {
     font-size: 60px;
     color: wheat;
-    animation: focus-in-contract-bck 2s linear both
+    animation: focus-in-contract-bck 2s linear both;
+    padding: 20px;
+    margin-top: 100px
 }
 
 .bigImage {
@@ -87,7 +90,8 @@
 
     display: flex;
     flex-direction: row;
-    animation: tracking-in-contract-bck-bottom 1.5s linear backwards
+    animation: tracking-in-contract-bck-bottom 1.5s linear backwards;
+    margin-top: 20px;
 }
 
 .descript {
@@ -105,17 +109,30 @@
         0px 8px 16px wheat;
     border-radius: 20px;
 
+    display: flex;
+    flex-direction: column;
+    line-height: 40px;
+    justify-content: center;
+
 }
 
+.descript h3 {
+    line-height: 60px;
+}
+
+
+
 .price {
-    align-self: flex-end;
-    margin-right: 300px;
+    width: 1280px;
+    display: flex;
+    justify-content: flex-end;
+
 }
 
 .price p {
     color: white;
     padding: 20px;
-    width: auto;
+    width: 200px;
     height: 50px;
     font-size: 35px;
     box-shadow: 0px 1px 2px wheat,
@@ -124,6 +141,7 @@
         0px 8px 16px wheat;
 
     border-radius: 20px;
+
 
 
 }
@@ -138,10 +156,7 @@
     margin-bottom: 20px;
     position: fixed;
     bottom: 20px;
-    right: 875px;
     z-index: 999;
-
-
 
 
 
@@ -161,7 +176,6 @@
 .comments {
     align-self: flex-start;
     margin: 100px;
-
     padding: 20px;
     font-size: 25px;
     box-shadow: 0px 1px 2px wheat,
@@ -185,11 +199,12 @@
 }
 
 .angle-links {
-    align-self: flex-start;
-    background-color: #222;
-    margin-left: 420px;
-    margin-top: 35px;
-    animation: tracking-in-contract-bck-bottom 1.5s linear backwards
+
+    background-color: transparent;
+    animation: tracking-in-contract-bck-bottom 1.5s linear backwards;
+    width: 1000px;
+    margin-top: 10px;
+
 }
 
 .angle-links img {
@@ -198,5 +213,143 @@
     height: 50px;
     background-color: wheat;
     margin: 10px;
+
+}
+
+@media (max-width: 1300px) {
+
+
+    .bigImage {
+
+        max-width: 350px;
+        max-height: 350px;
+        margin-bottom: 20px;
+    }
+
+    .descript {
+
+
+        max-width: 350px;
+        max-height: 350px;
+        margin-top: 20px;
+    }
+
+    .descript p,
+    ul,
+    h3 {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .descript h3 {
+        line-height: 20px;
+    }
+
+    .price {
+        width: 250px;
+    }
+
+    .addToCartBttn1 {
+
+        position: fixed;
+        bottom: 20px;
+
+
+
+    }
+
+    .angle-links {
+        width: 300px;
+    }
+
+    .comments {
+        width: 700px;
+    }
+}
+
+@media (max-width: 1020px) {
+    .productAndImage {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bigImage {
+        width: 450px;
+        height: 450px;
+        margin-right: 0px;
+    }
+
+    .descript {
+        width: 450px;
+        height: 450px;
+        margin-left: 0px;
+    }
+
+    .price {
+        margin-top: 20px;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .addToCartBttn1 {
+
+
+        position: fixed;
+
+
+
+    }
+
+    .comments {
+        width: 300px;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .product-info-container h2 {
+        font-size: 30px;
+    }
+
+    .bigImage {
+        width: 250px;
+        height: 250px;
+    }
+
+    .descript {
+        font-size: 18px;
+        width: 250px;
+        height: 250px;
+    }
+
+    .price {
+        font-size: 25px;
+        width: 150px;
+        height: 60px;
+
+
+
+    }
+
+    .price p {
+        font-size: 16px;
+        height: 20px;
+
+
+    }
+
+    .addToCartBttn1 {
+
+
+        position: fixed;
+        height: 40px;
+        width: 100px;
+
+    }
+
+    .comments {
+        width: 300px;
+        margin: 20px;
+    }
 
 }

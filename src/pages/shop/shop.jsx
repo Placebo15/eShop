@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PRODUCTS } from "../../products";
 import { Product } from "./product";
+
 import "./shop.css";
 
 export const Shop = () => {

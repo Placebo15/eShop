@@ -8,6 +8,7 @@ import ProductInfo from "./pages/product-info/ProductInfo";
 import { Category } from "./pages/category/category";
 import { About } from "./pages/About/about";
 
+
 function App() {
   return (
     <div className="App">
@@ -22,6 +23,7 @@ function App() {
             <Route path="/clothes" element={<Category category="Clothes" />} />
             <Route path="/laptops" element={<Category category="Laptops" />} />
             <Route path="/about" element={<About />} />
+            <Route path="/payment" />
           </Routes>
         </Router>
       </ShopContextProvider>

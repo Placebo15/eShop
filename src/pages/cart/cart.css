@@ -1,10 +1,23 @@
 .cart {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    background-color: white;
+    width: 100%;
+    margin-top: 80px;
+    position: absolute;
+    padding: 20px
+}
+
+.cart h1 {
+
+    text-align: center;
+    margin-top: 20px;
 
 }
+
+
+
 
 .cartItem {
     width: 700px;
@@ -17,18 +30,32 @@
         0px 8px 16px #222;
     border-radius: 25px;
     margin: 30px;
+
+    justify-content: space-around;
 }
+
+.countHandler {
+    width: 160px;
+
+
+}
+
+
+
+
+
+
 
 .cartItem img {
     width: 200px;
-    margin-left: 40px;
+
 
 }
 
 .cartItem .description {
-    width: 100%;
+
     font-size: 30px;
-    margin-left: 60px;
+
 
 }
 
@@ -42,6 +69,7 @@
     border-radius: 8px;
     margin-left: 150px;
     cursor: pointer;
+    margin-bottom: 50px;
 }
 
 .checkout button:hover {
@@ -55,7 +83,7 @@
 }
 
 .checkout p {
-    text-align: right;
+    text-align: center;
 
 
 }
@@ -96,4 +124,86 @@
 
 
 
+}
+
+@media (max-width: 1000px) {
+    .cartItem {
+        width: 430px;
+        justify-content: space-around;
+        height: 350px;
+
+    }
+
+
+
+
+
+    .checkout p {
+        text-align: center
+    }
+
+    .checkout {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .checkout button {
+        margin-bottom: 20px;
+    }
+
+
+
+}
+
+@media (max-width: 510px) {
+    .cartItem {
+        width: 300px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        margin-left: 0px;
+
+
+
+    }
+
+    .countHandler {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 200px;
+
+    }
+
+
+
+    .description p {
+        font-size: 22px;
+
+
+    }
+
+
+
+
+    .checkout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+
+    }
+
+    .checkout button {
+
+
+        margin-left: 0px;
+
+
+    }
 }

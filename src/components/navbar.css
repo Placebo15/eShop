@@ -36,83 +36,63 @@ body {
     caret-color: transparent;
 }
 
-
 .navbar {
     width: 100%;
     height: 80px;
     background-color: rgb(47, 46, 46);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 999;
+    align-items: center;
 
 }
 
 .links {
     display: flex;
 
+
+    align-self: center;
 }
 
 .links a {
-
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-
-    text-decoration: none;
-}
-
-.shopcart {
-
-
-    position: fixed;
-    top: 20px;
-    right: 40px;
-    z-index: 999;
-    color: white;
-
-
-
-
-}
-
-.contactInfo {
-    display: flex;
-    align-items: center;
-
-
-}
-
-
-.contactInfo a {
     color: white;
     text-decoration: none;
     font-size: 20px;
     display: flex;
     align-items: center;
+    padding: 20px;
+
+
 
 }
 
-.contactInfo a :hover {
+.shopcart {
+
+    z-index: 999;
+    color: white;
+    margin-right: 20px;
+
+}
+
+.links a:hover {
     color: wheat;
     animation: jello-vertical 1s linear both;
-
 }
 
 .shopcart:hover {
-
     color: wheat;
 }
 
-
-
 .eShop a {
+
     text-decoration: none;
     color: white;
     font-size: 40px;
-    position: fixed;
-    top: 15px;
-    left: 40px;
+
     z-index: 1000;
 
+    margin-left: 20px;
 
 }
 
@@ -120,22 +100,41 @@ body {
     color: wheat;
 }
 
-
-
 .cartItemCount {
     position: absolute;
-    top: -8px;
-    right: -8px;
+    top: 18px;
+    right: 15px;
     background-color: red;
     color: white;
     font-size: 12px;
     padding: 2px 5px;
     border-radius: 50%;
+    text-decoration: none;
 
 }
 
 .cartIcon.animated {
     animation: shake-top 1s linear both;
+}
+
+
+
+.socialIcons {
+    margin-top: 200px;
+    justify-content: space-between;
+    display: flex;
+    width: 250px;
+
+}
+
+.menuButton {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 35px;
+
+
+
 }
 
 .Menu {
@@ -150,44 +149,17 @@ body {
 
 }
 
-.socialIcons {
-    margin-top: 100px;
-    justify-content: space-between;
-
-    display: flex;
-    width: 250px;
-
-}
-
-
-
-
-
-.menuButton {
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 35px;
-    position: fixed;
-    z-index: 999;
-
-
-}
-
 .menuButton:hover {
     cursor: pointer;
     color: wheat;
-
 }
 
 .Menu.collapsed .categoryContent {
     animation: slide-out-left 0.5s both;
+
 }
 
-
 .Menu .categoryContent {
-
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -197,37 +169,18 @@ body {
     width: 350px;
     position: fixed;
     top: 80px;
-    height: 850px;
+    height: 100vh;
     left: 0px;
     padding: 20px;
     animation: slide-in-left 0.5s linear both;
-
-
 }
 
 
 
-.x {
-    background-color: rgb(142, 137, 113);
-    border: none;
-    color: white;
-    font-size: 30px;
-    z-index: 1;
-    position: relative;
-    top: 200px;
-    left: 210px;
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-
-}
-
-.x:hover {
-    color: wheat;
-}
 
 .Menu .categoryContent a {
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     text-decoration: none;
     padding: 10px;
 
@@ -237,9 +190,77 @@ body {
     color: wheat;
 }
 
+/* Responsive Styles */
+
+@media screen and (max-width: 1200px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .links {
+        flex-direction: column;
+        border: none;
+        margin-top: 20px;
+        z-index: 999;
+    }
+
+    .links a {
+        margin: 0;
+        padding: 10px;
+        display: none;
+    }
+
+    .Menu button {
+
+        position: fixed;
+        left: 20px;
+        top: 20px
+    }
+
+    .Menu.collapsed .categoryContent {
+        animation: slide-out-left 0.5s both;
+
+    }
+
+    .socialIcons {
+        margin-top: 100px;
+        justify-content: space-between;
+        display: flex;
+        width: 250px;
+
+    }
 
 
 
+
+    .shopcart {
+
+        z-index: 999;
+        color: white;
+        margin-right: 20px;
+        position: fixed;
+        top: 20px;
+        right: 20px
+    }
+
+    .cartItemCount {
+        position: absolute;
+        top: 1px;
+        right: 2px;
+
+
+    }
+
+
+}
+
+@media (max-width: 520px) {
+
+    .Menu .categoryContent {
+        width: 100vw;
+    }
+}
 
 @keyframes slide-in-left {
     0% {
