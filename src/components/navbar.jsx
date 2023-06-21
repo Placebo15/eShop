@@ -113,7 +113,7 @@ export const Navbar = () => {
             </div>
 
             <Link className="shopcart" to="/cart">
-                <ShoppingCart size={40} className={animateCart ? 'cartIcon animated' : 'cartIcon'} />
+                <ShoppingCart size={32} className={animateCart ? 'cartIcon animated' : 'cartIcon'} />
                 {cartItemsCount > 0 && <span className="cartItemCount">{cartItemsCount}</span>}
             </Link>
         </div>

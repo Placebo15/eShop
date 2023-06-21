@@ -1,7 +1,231 @@
-import React from 'react'
+import React, { useState } from "react";
+import {
+    MDBCard,
+    MDBCardBody,
+    MDBCardHeader,
+    MDBCheckbox,
+    MDBCol,
+    MDBContainer,
+    MDBInput,
+    MDBRow,
+    MDBRadio,
+    MDBBtn,
+    MDBListGroup,
+    MDBListGroupItem,
+} from "mdb-react-ui-kit";
+import "./paymentmethod.css";
+import { useLocation } from "react-router-dom";
 
-export const PaymentMethod = () => {
+export const Payment = () => {
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const totalAmount = searchParams.get("totalAmount");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [address, setAddress] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [nameOnCard, setNameOnCard] = useState("");
+    const [cardNumber, setCardNumber] = useState("");
+    const [expiration, setExpiration] = useState("");
+    const [cvv, setCvv] = useState("");
+
+    const handleInputChange = (event, setter) => {
+        setter(event.target.value);
+    };
+
+
+
     return (
-        "<div class=\"container\">\r\n    <div class=\"py-5 text-center\">\r\n        <img class=\"d-block mx-auto mb-4\" src=\"https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg\" alt=\"\" width=\"72\" height=\"72\">\r\n        <h2>Checkout form</h2>\r\n        <p class=\"lead\">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4 order-md-2 mb-4\">\r\n            <h4 class=\"d-flex justify-content-between align-items-center mb-3\">\r\n                <span class=\"text-muted\">Your cart</span>\r\n                <span class=\"badge badge-secondary badge-pill\">3</span>\r\n            </h4>\r\n            <ul class=\"list-group mb-3 sticky-top\">\r\n                <li class=\"list-group-item d-flex justify-content-between lh-condensed\">\r\n                    <div>\r\n                        <h6 class=\"my-0\">Product name</h6>\r\n                        <small class=\"text-muted\">Brief description</small>\r\n                    </div>\r\n                    <span class=\"text-muted\">$12</span>\r\n                </li>\r\n                <li class=\"list-group-item d-flex justify-content-between lh-condensed\">\r\n                    <div>\r\n                        <h6 class=\"my-0\">Second product</h6>\r\n                        <small class=\"text-muted\">Brief description</small>\r\n                    </div>\r\n                    <span class=\"text-muted\">$8</span>\r\n                </li>\r\n                <li class=\"list-group-item d-flex justify-content-between lh-condensed\">\r\n                    <div>\r\n                        <h6 class=\"my-0\">Third item</h6>\r\n                        <small class=\"text-muted\">Brief description</small>\r\n                    </div>\r\n                    <span class=\"text-muted\">$5</span>\r\n                </li>\r\n                <li class=\"list-group-item d-flex justify-content-between bg-light\">\r\n                    <div class=\"text-success\">\r\n                        <h6 class=\"my-0\">Promo code</h6>\r\n                        <small>EXAMPLECODE</small>\r\n                    </div>\r\n                    <span class=\"text-success\">-$5</span>\r\n                </li>\r\n                <li class=\"list-group-item d-flex justify-content-between\">\r\n                    <span>Total (USD)</span>\r\n                    <strong>$20</strong>\r\n                </li>\r\n            </ul>\r\n            <form class=\"card p-2\">\r\n                <div class=\"input-group\">\r\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Promo code\">\r\n                    <div class=\"input-group-append\">\r\n                        <button type=\"submit\" class=\"btn btn-secondary\">Redeem</button>\r\n                    </div>\r\n                </div>\r\n            </form>\r\n        </div>\r\n        <div class=\"col-md-8 order-md-1\">\r\n            <h4 class=\"mb-3\">Billing address</h4>\r\n            <form class=\"needs-validation\" novalidate=\"\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-6 mb-3\">\r\n                        <label for=\"firstName\">First name</label>\r\n                        <input type=\"text\" class=\"form-control\" id=\"firstName\" placeholder=\"\" value=\"\" required=\"\">\r\n                        <div class=\"invalid-feedback\"> Valid first name is required. </div>\r\n                    </div>\r\n                    <div class=\"col-md-6 mb-3\">\r\n                        <label for=\"lastName\">Last name</label>\r\n                        <input type=\"text\" class=\"form-control\" id=\"lastName\" placeholder=\"\" value=\"\" required=\"\">\r\n                        <div class=\"invalid-feedback\"> Valid last name is required. </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"mb-3\">\r\n                    <label for=\"username\">Username</label>\r\n                    <div class=\"input-group\">\r\n                        <div class=\"input-group-prepend\">\r\n                            <span class=\"input-group-text\">@</span>\r\n                        </div>\r\n                        <input type=\"text\" class=\"form-control\" id=\"username\" placeholder=\"Username\" required=\"\">\r\n                        <div class=\"invalid-feedback\" style=\"width: 100%;\"> Your username is required. </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"mb-3\">\r\n                    <label for=\"email\">Email <span class=\"text-muted\">(Optional)</span></label>\r\n                    <input type=\"email\" class=\"form-control\" id=\"email\" placeholder=\"you@example.com\">\r\n                    <div class=\"invalid-feedback\"> Please enter a valid email address for shipping updates. </div>\r\n                </div>\r\n                <div class=\"mb-3\">\r\n                    <label for=\"address\">Address</label>\r\n                    <input type=\"text\" class=\"form-control\" id=\"address\" placeholder=\"1234 Main St\" required=\"\">\r\n                    <div class=\"invalid-feedback\"> Please enter your shipping address. </div>\r\n                </div>\r\n                <div class=\"mb-3\">\r\n                    <label for=\"address2\">Address 2 <span class=\"text-muted\">(Optional)</span></label>\r\n                    <input type=\"text\" class=\"form-control\" id=\"address2\" placeholder=\"Apartment or suite\">\r\n                </div>\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-5 mb-3\">\r\n                        <label for=\"country\">Country</label>\r\n                        <select class=\"custom-select d-block w-100\" id=\"country\" required=\"\">\r\n                            <option value=\"\">Choose...</option>\r\n                            <option>United States</option>\r\n                        </select>\r\n                        <div class=\"invalid-feedback\"> Please select a valid country. </div>\r\n                    </div>\r\n                    <div class=\"col-md-4 mb-3\">\r\n                        <label for=\"state\">State</label>\r\n                        <select class=\"custom-select d-block w-100\" id=\"state\" required=\"\">\r\n                            <option value=\"\">Choose...</option>\r\n                            <option>California</option>\r\n                        </select>\r\n                        <div class=\"invalid-feedback\"> Please provide a valid state. </div>\r\n                    </div>\r\n                    <div class=\"col-md-3 mb-3\">\r\n                        <label for=\"zip\">Zip</label>\r\n                        <input type=\"text\" class=\"form-control\" id=\"zip\" placeholder=\"\" required=\"\">\r\n                        <div class=\"invalid-feedback\"> Zip code required. </div>\r\n                    </div>\r\n                </div>\r\n                <hr class=\"mb-4\">\r\n                <div class=\"custom-control custom-checkbox\">\r\n                    <input type=\"checkbox\" class=\"custom-control-input\" id=\"same-address\">\r\n                    <label class=\"custom-control-label\" for=\"same-address\">Shipping address is the same as my billing address</label>\r\n                </div>\r\n                <div class=\"custom-control custom-checkbox\">\r\n                    <input type=\"checkbox\" class=\"custom-control-input\" id=\"save-info\">\r\n                    <label class=\"custom-control-label\" for=\"save-info\">Save this information for next time</label>\r\n                </div>\r\n                <hr class=\"mb-4\">\r\n                <h4 class=\"mb-3\">Payment</h4>\r\n                <div class=\"d-block my-3\">\r\n                    <div class=\"custom-control custom-radio\">\r\n                        <input id=\"credit\" name=\"paymentMethod\" type=\"radio\" class=\"custom-control-input\" checked=\"\" required=\"\">\r\n                        <label class=\"custom-control-label\" for=\"credit\">Credit card</label>\r\n                    </div>\r\n                    <div class=\"custom-control custom-radio\">\r\n                        <input id=\"debit\" name=\"paymentMethod\" type=\"radio\" class=\"custom-control-input\" required=\"\">\r\n                        <label class=\"custom-control-label\" for=\"debit\">Debit card</label>\r\n                    </div>\r\n                    <div class=\"custom-control custom-radio\">\r\n                        <input id=\"paypal\" name=\"paymentMethod\" type=\"radio\" class=\"custom-control-input\" required=\"\">\r\n                        <label class=\"custom-control-label\" for=\"paypal\">PayPal</label>\r\n                    </div>\r\n                </div>\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-6 mb-3\">\r\n                        <label for=\"cc-name\">Name on card</label>\r\n                        <input type=\"text\" class=\"form-control\" id=\"cc-name\" placeholder=\"\" required=\"\">\r\n                        <small class=\"text-muted\">Full name as displayed on card</small>\r\n                        <div class=\"invalid-feedback\"> Name on card is required </div>\r\n                    </div>\r\n                    <div class=\"col-md-6 mb-3\">\r\n                        <label for=\"cc-number\">Credit card number</label>\r\n                        <input type=\"text\" class=\"form-control\" id=\"cc-number\" placeholder=\"\" required=\"\">\r\n                        <div class=\"invalid-feedback\"> Credit card number is required </div>\r\n                    </div>\r\n                </div>\r\n                <div class=\"row\">\r\n                    <div class=\"col-md-3 mb-3\">\r\n                        <label for=\"cc-expiration\">Expiration</label>\r\n                        <input type=\"text\" class=\"form-control\" id=\"cc-expiration\" placeholder=\"\" required=\"\">\r\n                        <div class=\"invalid-feedback\"> Expiration date required </div>\r\n                    </div>\r\n                    <div class=\"col-md-3 mb-3\">\r\n                        <label for=\"cc-cvv\">CVV</label>\r\n                        <input type=\"text\" class=\"form-control\" id=\"cc-cvv\" placeholder=\"\" required=\"\">\r\n                        <div class=\"invalid-feedback\"> Security code required </div>\r\n                    </div>\r\n                </div>\r\n                <hr class=\"mb-4\">\r\n                <button class=\"btn btn-primary btn-lg btn-block\" type=\"submit\">Continue to checkout</button>\r\n            </form>\r\n        </div>\r\n    </div>\r\n    <footer class=\"my-5 pt-5 text-muted text-center text-small\">\r\n        <p class=\"mb-1\">© 2017-2019 Company Name</p>\r\n        <ul class=\"list-inline\">\r\n            <li class=\"list-inline-item\"><a href=\"#\">Privacy</a></li>\r\n            <li class=\"list-inline-item\"><a href=\"#\">Terms</a></li>\r\n            <li class=\"list-inline-item\"><a href=\"#\">Support</a></li>\r\n        </ul>\r\n    </footer>\r\n</div>"
-    )
-}
+        <MDBContainer className="py-5">
+            <MDBRow>
+                <MDBCol md="8" className="mb4">
+                    <MDBCard className="mb-4">
+                        <MDBCardHeader className="py-3">
+                            <h5 className="mb-0">Billing details</h5>
+                        </MDBCardHeader>
+                        <MDBCardBody>
+                            <MDBRow className="mb-4">
+                                <MDBCol>
+                                    <MDBInput
+                                        label=""
+                                        id="form1"
+                                        type="text"
+                                        value={firstName}
+                                        onChange={(e) => handleInputChange(e, setFirstName)}
+                                        placeholder="First name"
+                                    />
+                                </MDBCol>
+
+                                <MDBCol>
+                                    <MDBInput
+                                        label=""
+                                        id="form2"
+                                        type="text"
+                                        value={lastName}
+                                        onChange={(e) => handleInputChange(e, setLastName)}
+                                        placeholder="Last name"
+                                    />
+                                </MDBCol>
+                            </MDBRow>
+
+                            <MDBInput
+                                wrapperClass="mb-4"
+                                label=""
+                                id="form3"
+                                type="text"
+                                value={address}
+                                onChange={(e) => handleInputChange(e, setAddress)}
+                                placeholder="Address"
+                            />
+                            <MDBInput
+                                wrapperClass="mb-4"
+                                label=""
+                                id="form4"
+                                type="email"
+                                value={email}
+                                onChange={(e) => handleInputChange(e, setEmail)}
+                                placeholder="Email"
+                            />
+                            <MDBInput
+                                wrapperClass="mb-4"
+                                label=""
+                                id="form5"
+                                type="number"
+                                value={phone}
+                                onChange={(e) => handleInputChange(e, setPhone)}
+                                placeholder="Phone"
+                            />
+
+                            <hr className="my-4" />
+
+                            <MDBCheckbox
+                                name="flexCheck"
+                                value=""
+                                id="checkoutForm1"
+                                label="Shipping address is the same as my billing address"
+                            />
+                            <MDBCheckbox
+                                name="flexCheck"
+                                value=""
+                                id="checkoutForm2"
+                                label=" Save this information for next time"
+                                defaultChecked
+                            />
+
+                            <hr className="my-4" />
+
+                            <h5 className="mb-4">Payment</h5>
+
+                            <MDBRadio
+                                name="flexRadioDefault"
+                                id="flexRadioDefault1"
+                                label="Credit card"
+                                checked
+                            />
+
+                            <MDBRadio
+                                name="flexRadioDefault"
+                                id="flexRadioDefault2"
+                                label="Debit card"
+                            />
+
+                            <MDBRadio
+                                name="flexRadioDefault"
+                                id="flexRadioDefault3"
+                                label="Paypal"
+                                wrapperClass="mb-4"
+                            />
+
+                            <MDBRow>
+                                <MDBCol>
+                                    <MDBInput
+                                        label=""
+                                        id="form6"
+                                        type="text"
+                                        value={nameOnCard}
+                                        onChange={(e) => handleInputChange(e, setNameOnCard)}
+                                        placeholder="Name on card"
+                                    />
+                                </MDBCol>
+                                <MDBCol>
+                                    <MDBInput
+                                        label=""
+                                        id="form7"
+                                        type="text"
+                                        value={cardNumber}
+                                        onChange={(e) => handleInputChange(e, setCardNumber)}
+                                        placeholder="Card number"
+                                    />
+                                </MDBCol>
+                            </MDBRow>
+
+                            <MDBRow>
+                                <MDBCol md="3">
+                                    <MDBInput
+                                        label=""
+                                        id="form8"
+                                        type="text"
+                                        value={expiration}
+                                        onChange={(e) => handleInputChange(e, setExpiration)}
+                                        placeholder="Expiration"
+                                    />
+                                </MDBCol>
+                                <MDBCol md="3">
+                                    <MDBInput
+                                        label=""
+                                        id="form9"
+                                        type="text"
+                                        value={cvv}
+                                        onChange={(e) => handleInputChange(e, setCvv)}
+                                        placeholder="CVV"
+                                    />
+                                </MDBCol>
+                            </MDBRow>
+
+                            <MDBBtn size="sm" onClick={() => {
+                                console.log(totalAmount);
+
+                            }}
+                                block>
+                                Continue to checkout
+                            </MDBBtn>
+                        </MDBCardBody>
+                    </MDBCard>
+                </MDBCol>
+
+                <MDBCol md="4" className="mb3">
+                    <MDBCard className="mb-4">
+                        <MDBCardHeader className="py-3">
+                            <h5 className="mb-0">Summary</h5>
+                        </MDBCardHeader>
+                        <MDBCardBody>
+                            <MDBListGroup flush>
+                                <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                    Products
+                                    <span>${totalAmount}</span>
+                                </MDBListGroupItem>
+                                <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                    Shipping
+                                    <span>Gratis</span>
+                                </MDBListGroupItem>
+                                <hr className="my-2"></hr>
+                                <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                    <div>
+                                        <strong>Total amount</strong>
+                                        <strong>
+                                            <p className="mb-0">(including VAT)</p>
+                                        </strong>
+                                    </div>
+                                    <span>
+                                        <strong>Total:${totalAmount}</strong>
+                                    </span>
+                                </MDBListGroupItem>
+                            </MDBListGroup>
+                        </MDBCardBody>
+                    </MDBCard>
+                </MDBCol>
+            </MDBRow>
+        </MDBContainer>
+    );
+};
