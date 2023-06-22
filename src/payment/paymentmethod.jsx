@@ -37,8 +37,8 @@ export const Payment = () => {
 
 
     return (
-        <MDBContainer className="py-5">
-            <MDBRow>
+        <MDBContainer className="paymentM">
+            <MDBRow className="rowP">
                 <MDBCol md="8" className="mb4">
                     <MDBCard className="mb-4">
                         <MDBCardHeader className="py-3">
@@ -48,53 +48,63 @@ export const Payment = () => {
                             <MDBRow className="mb-4">
                                 <MDBCol>
                                     <MDBInput
-                                        label=""
+                                        label="First name"
                                         id="form1"
                                         type="text"
                                         value={firstName}
                                         onChange={(e) => handleInputChange(e, setFirstName)}
-                                        placeholder="First name"
+                                        labelClass="customLabel"
+                                        required="reqired"
+
                                     />
                                 </MDBCol>
 
                                 <MDBCol>
                                     <MDBInput
-                                        label=""
+                                        label="Last name"
                                         id="form2"
                                         type="text"
                                         value={lastName}
                                         onChange={(e) => handleInputChange(e, setLastName)}
-                                        placeholder="Last name"
+                                        labelClass="customLabel"
+                                        required="reqired"
+
                                     />
                                 </MDBCol>
                             </MDBRow>
 
                             <MDBInput
                                 wrapperClass="mb-4"
-                                label=""
+                                label="Address"
                                 id="form3"
                                 type="text"
                                 value={address}
                                 onChange={(e) => handleInputChange(e, setAddress)}
-                                placeholder="Address"
+                                labelClass="customLabel"
+                                required="reqired"
+
                             />
                             <MDBInput
                                 wrapperClass="mb-4"
-                                label=""
+                                label="E-mail"
                                 id="form4"
-                                type="email"
+                                type="text"
                                 value={email}
                                 onChange={(e) => handleInputChange(e, setEmail)}
-                                placeholder="Email"
+                                labelClass="customLabel"
+                                required="reqired"
+
                             />
                             <MDBInput
                                 wrapperClass="mb-4"
-                                label=""
+                                label="Phone"
                                 id="form5"
                                 type="number"
                                 value={phone}
                                 onChange={(e) => handleInputChange(e, setPhone)}
-                                placeholder="Phone"
+                                labelClass="customLabel"
+                                required="reqired"
+
                             />
 
                             <hr className="my-4" />
@@ -140,22 +150,26 @@ export const Payment = () => {
                             <MDBRow>
                                 <MDBCol>
                                     <MDBInput
-                                        label=""
+                                        label="Name on card"
                                         id="form6"
                                         type="text"
                                         value={nameOnCard}
                                         onChange={(e) => handleInputChange(e, setNameOnCard)}
-                                        placeholder="Name on card"
+                                        labelClass="customLabel"
+                                        required="reqired"
+
                                     />
                                 </MDBCol>
                                 <MDBCol>
                                     <MDBInput
-                                        label=""
+                                        label="Card number"
                                         id="form7"
                                         type="text"
                                         value={cardNumber}
                                         onChange={(e) => handleInputChange(e, setCardNumber)}
-                                        placeholder="Card number"
+                                        labelClass="customLabel"
+                                        required="reqired"
+
                                     />
                                 </MDBCol>
                             </MDBRow>
@@ -163,22 +177,27 @@ export const Payment = () => {
                             <MDBRow>
                                 <MDBCol md="3">
                                     <MDBInput
-                                        label=""
+                                        label="Exparation"
                                         id="form8"
                                         type="text"
                                         value={expiration}
                                         onChange={(e) => handleInputChange(e, setExpiration)}
-                                        placeholder="Expiration"
+                                        labelClass="customLabel"
+                                        required="reqired"
+
+
                                     />
                                 </MDBCol>
                                 <MDBCol md="3">
                                     <MDBInput
-                                        label=""
+                                        label="CVV"
                                         id="form9"
                                         type="text"
                                         value={cvv}
                                         onChange={(e) => handleInputChange(e, setCvv)}
-                                        placeholder="CVV"
+                                        labelClass="customLabel"
+                                        required="reqired"
+
                                     />
                                 </MDBCol>
                             </MDBRow>
@@ -207,7 +226,7 @@ export const Payment = () => {
                                 </MDBListGroupItem>
                                 <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                     Shipping
-                                    <span>Gratis</span>
+                                    <span>FREE</span>
                                 </MDBListGroupItem>
                                 <hr className="my-2"></hr>
                                 <MDBListGroupItem className="d-flex justify-content-between align-items-center border-0 px-0 pb-0">

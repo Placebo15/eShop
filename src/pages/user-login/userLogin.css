@@ -1,0 +1,29 @@
+.login {
+    background-color: white;
+    width: 65%;
+    padding: 50px;
+    margin-top: 100px;
+
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 1px 2px wheat,
+        0px 2px 4px wheat,
+        0px 4px 8px wheat,
+        0px 8px 16px wheat;
+
+}
+
+.d-flex.align-items-center.my-4 {
+
+    justify-content: center;
+}
+
+@media (max-width: 1400px) {
+
+    .btn-primary {
+        font-size: 15px;
+    }
+}

@@ -55,12 +55,14 @@ export const Navbar = () => {
         <div className="navbar">
             <div className="eShop">
                 <Link to="/">Shop</Link>
-            </div>
-
-            <div className={`Menu ${menuCollapsed ? 'collapsed' : ''}`}>
                 <button className="menuButton" onClick={toggleMenu}>
                     ☰
                 </button>
+
+            </div>
+
+            <div className={`Menu ${menuCollapsed ? 'collapsed' : ''}`}>
+
                 <div className='categoryContent' ref={menuRef}>
 
                     <Link to="/phones">Phone</Link>
@@ -111,11 +113,13 @@ export const Navbar = () => {
                 </a>
 
             </div>
-
-            <Link className="shopcart" to="/cart">
-                <ShoppingCart size={32} className={animateCart ? 'cartIcon animated' : 'cartIcon'} />
-                {cartItemsCount > 0 && <span className="cartItemCount">{cartItemsCount}</span>}
-            </Link>
+            <div className='loginAndCart'>
+                <Link className='loginlink' to="/login">LogIn</Link>
+                <Link className="shopcart" to="/cart">
+                    <ShoppingCart size={32} className={animateCart ? 'cartIcon animated' : 'cartIcon'} />
+                    {cartItemsCount > 0 && <span className="cartItemCount">{cartItemsCount}</span>}
+                </Link>
+            </div>
         </div>
     );
 };

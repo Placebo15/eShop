@@ -8,6 +8,8 @@ import ProductInfo from "./pages/product-info/ProductInfo";
 import { Category } from "./pages/category/category";
 import { About } from "./pages/About/about";
 import { Payment } from "./payment/paymentmethod";
+import { Registration } from "./pages/user-registration/userRegistration";
+import { Login } from "./pages/user-login/userLogin";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
             <Route path="/laptops" element={<Category category="Laptops" />} />
             <Route path="/about" element={<About />} />
             <Route path="/payment" element={<Payment totalAmount={Cart.totalAmount} />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Router>
       </ShopContextProvider>

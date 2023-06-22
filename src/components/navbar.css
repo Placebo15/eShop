@@ -47,6 +47,19 @@ body {
     align-items: center;
 
 
+
+}
+
+.loginlink {
+    justify-self: flex-start;
+    text-decoration: none;
+    color: wheat;
+    font-size: 20px;
+
+}
+
+.loginlink:hover {
+    color: white
 }
 
 .links {
@@ -59,7 +72,7 @@ body {
 .links a {
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 17px;
     display: flex;
     align-items: center;
     padding: 20px;
@@ -84,6 +97,18 @@ body {
 
 .shopcart:hover {
     color: wheat;
+
+}
+
+.eShop {
+
+    display: flex;
+    gap: 40px;
+}
+
+.loginAndCart {
+    display: flex;
+    gap: 40px
 }
 
 .eShop a {
@@ -134,21 +159,10 @@ body {
     border: none;
     color: white;
     font-size: 35px;
-
-
-
 }
 
 .Menu {
-
     position: absolute;
-    left: 200px;
-    top: 20px;
-    z-index: 999;
-
-
-
-
 }
 
 .menuButton:hover {
@@ -211,6 +225,7 @@ body {
         margin: 0;
         padding: 10px;
         display: none;
+
     }
 
     .Menu button {
@@ -219,6 +234,14 @@ body {
         left: 20px;
         top: 20px
     }
+
+    .Menucollapsed {
+        position: absolute;
+        top: 0;
+        left: 10px;
+    }
+
+
 
     .Menu.collapsed .categoryContent {
         animation: slide-out-left 0.5s both;
@@ -242,7 +265,7 @@ body {
         color: white;
         margin-right: 20px;
         position: fixed;
-        top: 20px;
+        top: 30px;
         right: 20px
     }
 

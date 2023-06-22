@@ -4,7 +4,10 @@
     box-sizing: border-box
 }
 
+.paymentM {
+    margin-bottom: 20px;
 
+}
 
 
 
@@ -18,10 +21,6 @@
     border-radius: 5px;
     margin-left: 20px;
 
-
-
-
-
 }
 
 .mb3 {
@@ -31,10 +30,15 @@
         0px 4px 8px wheat,
         0px 8px 16px wheat;
     width: 320px;
-    margin-left: 20px;
+    margin-left: 0px;
     border-radius: 5px;
     padding: 0px;
     height: 100%;
+
+}
+
+.rowP {
+    gap: 45px;
 
 }
 
@@ -42,8 +46,103 @@
     margin-bottom: 0px !important;
 }
 
+.row.mb-4 {
+    margin-bottom: 0px !important;
+}
+
+.form-outline.mb-4 {
+    margin-bottom: 0px !important;
+}
+
+.row {
+    margin-bottom: 0px !important;
+    display: flex;
+
+
+}
+
+
 .card-body :nth-child(14) {
     margin-bottom: 15px;
     margin-top: 15px;
 
+}
+
+
+
+.form-control {
+    position: relative;
+    border: 1px solid black;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+
+
+
+
+
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 1px solid wheat;
+
+
+
+}
+
+.customLabel {
+
+    position: relative;
+    top: -35px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    transition: 0.5s;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: max-content;
+    margin-bottom: 0px;
+    color: rgba(44, 42, 42, 0.456);
+
+
+}
+
+.form-control:focus~.customLabel,
+.form-control:valid~.customLabel {
+    color: rgb(189, 179, 30);
+    transform: translateX(10px) translateY(-20px);
+    font-size: 0.65em;
+    background: white;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+
+
+}
+
+@media (max-width: 1400px) {
+    .mb3 {
+        margin-top: 0px;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .mb4 {
+        width: 700px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .mb4,
+    .mb3 {
+        width: 270px;
+    }
 }
