@@ -11,9 +11,9 @@ const db = mysql.createConnection({
     database: "purchase_history"
 });
 
-// Middleware
+
 app.use(bodyParser.json());
-app.use(cors()); // Enable CORS
+app.use(cors());
 
 app.post("/insert", (req, res) => {
     const { query } = req.body;
@@ -29,17 +29,32 @@ app.post("/insert", (req, res) => {
     });
 });
 
-app.get("/logs", (req, res) => {
-    db.query("SELECT * FROM users", (err, result) => {
-        if (err) {
-            console.log(err);
-            res.send(err);
-        } else {
-            console.log(result);
-            res.send(result);
+app.post("/logs", (req, res) => {
+    const { name, password } = req.body;
+
+    db.execute(
+        `SELECT * FROM users WHERE (name = ? OR email = ?) AND password = ?`,
+        [name, name, password],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                res.send(err);
+            } else {
+                if (result.length > 0) {
+                    // Successful login
+                    res.json({ success: true });
+                } else {
+                    // Invalid username or password
+                    res.json({ success: false });
+                }
+            }
         }
-    });
+    );
 });
+
+
+
+
 
 app.post("/check-existing", (req, res) => {
     const { name, email } = req.body;
@@ -53,6 +68,24 @@ app.post("/check-existing", (req, res) => {
             const count = result[0].count;
             const exists = count > 0;
             res.json({ exists });
+        }
+    });
+});
+
+
+app.get('/orders', (req, res) => {
+    const { customer } = req.query;
+
+    const query = customer
+        ? `SELECT * FROM orders WHERE customer = '${customer}'`
+        : 'SELECT * FROM orders';
+
+    db.query(query, (err, result) => {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else {
+            res.json(result);
         }
     });
 });
