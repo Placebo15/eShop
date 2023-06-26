@@ -1,19 +1,17 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart } from 'phosphor-react';
 import { ShopContext } from '../context/shop-context';
 import './navbar.css';
-import { FaPhone, FaInstagram, FaMapMarker, FaFacebook } from 'react-icons/fa';
+import { FaPhone, FaInstagram, FaMapMarker, FaFacebook, FaUser } from 'react-icons/fa';
 
 export const Navbar = () => {
-    const { cartItems } = useContext(ShopContext);
+    const { cartItems, user, setUser } = useContext(ShopContext);
     const [animateCart, setAnimateCart] = useState(false);
     const [menuCollapsed, setMenuCollapsed] = useState(true);
-    const cartItemsCount = Object.values(cartItems).reduce(
-        (total, count) => total + count,
-        0
-    );
+    const cartItemsCount = Object.values(cartItems).reduce((total, count) => total + count, 0);
     const menuRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (cartItemsCount > 0) {
@@ -48,8 +46,10 @@ export const Navbar = () => {
     const collapseMenu = () => {
         setMenuCollapsed(true);
     };
-
-
+    const handleLogout = () => {
+        setUser(null); // Clear the user information
+        navigate('/'); // Redirect to the home page or any other desired page
+    };
 
     return (
         <div className="navbar">
@@ -58,13 +58,10 @@ export const Navbar = () => {
                 <button className="menuButton" onClick={toggleMenu}>
                     ☰
                 </button>
-
             </div>
 
             <div className={`Menu ${menuCollapsed ? 'collapsed' : ''}`}>
-
-                <div className='categoryContent' ref={menuRef}>
-
+                <div className="categoryContent" ref={menuRef}>
                     <Link to="/phones">Phone</Link>
                     <Link to="/clothes">Clothes</Link>
                     <Link to="/laptops">Laptops</Link>
@@ -78,11 +75,7 @@ export const Navbar = () => {
                         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                             <FaFacebook />
                         </a>
-                        <a
-                            href="https://www.google.com/maps/place/your+address+here"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://www.google.com/maps/place/your+address+here" target="_blank" rel="noopener noreferrer">
                             <FaMapMarker />
                         </a>
                     </div>
@@ -90,7 +83,6 @@ export const Navbar = () => {
             </div>
 
             <div className="links">
-
                 <a href="tel:+1234567890">
                     <FaPhone />
                     <span>123-456-7890</span>
@@ -103,23 +95,33 @@ export const Navbar = () => {
                     <FaFacebook />
                     <span>Facebook</span>
                 </a>
-                <a
-                    href="https://www.google.com/maps/place/your+address+here"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+                <a href="https://www.google.com/maps/place/your+address+here" target="_blank" rel="noopener noreferrer">
                     <FaMapMarker />
                     <span>123 Main St, City, Country</span>
                 </a>
-
             </div>
-            <div className='loginAndCart'>
-                <Link className='loginlink' to="/login">LogIn</Link>
+
+            <div className="loginAndCart">
+                {user ? (
+                    <div className="userProfile">
+                        <FaUser />
+                        <span className='userN' onClick={() => navigate('/userprofile')}  >{user.username}</span>
+                        <Link className="loginlink" onClick={handleLogout}>
+                            LogOut
+                        </Link>
+
+                    </div>
+
+                ) : (
+                    <Link className="loginlink" to="/login">
+                        LogIn
+                    </Link>
+                )}
                 <Link className="shopcart" to="/cart">
                     <ShoppingCart size={32} className={animateCart ? 'cartIcon animated' : 'cartIcon'} />
                     {cartItemsCount > 0 && <span className="cartItemCount">{cartItemsCount}</span>}
                 </Link>
             </div>
-        </div>
+        </div >
     );
 };

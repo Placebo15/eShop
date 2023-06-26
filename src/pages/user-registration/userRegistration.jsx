@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import {
     MDBBtn,
     MDBContainer,
@@ -9,19 +11,22 @@ import {
     MDBCardImage,
     MDBInput,
     MDBIcon,
-    MDBCheckbox
+    MDBCheckbox,
 } from 'mdb-react-ui-kit';
+import { Alert } from 'react-bootstrap';
 import './userRegistration.css';
 
-
-
-
 export const Registration = () => {
+    const navigate = useNavigate();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
     const [subscribe, setSubscribe] = useState(false);
+    const [error, setError] = useState('');
+    const [showAlert, setShowAlert] = useState(false);
+    const [redirecting, setRedirecting] = useState(false);
+    const [countdown, setCountdown] = useState(5);
 
     const handleInputChange = (event, setter) => {
         setter(event.target.value);
@@ -33,27 +38,87 @@ export const Registration = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Perform registration logic here
-        console.log('Registration data:', {
-            name,
-            email,
-            password,
-            repeatPassword,
-            subscribe
-        });
-        // Reset form fields
-        setName('');
-        setEmail('');
-        setPassword('');
-        setRepeatPassword('');
-        setSubscribe(false);
+        const isPasswordValid = (password) => {
+            const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            return passwordRegex.test(password);
+        };
+
+        if (password !== repeatPassword) {
+            setError('Passwords do not match');
+            return;
+        }
+        if (!isPasswordValid(password)) {
+            setError('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.');
+            return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            setError('Invalid email address');
+            return;
+        }
+
+        fetch('http://localhost:3001/check-existing', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email }),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.exists) {
+                    setError('Username or email already exists');
+                    return;
+                }
+
+                const query = `INSERT INTO users (name, email, password) VALUES ('${name}', '${email}', '${password}')`;
+                fetch('http://localhost:3001/insert', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ query }),
+                })
+                    .then((response) => response.json())
+                    .then((result) => {
+                        console.log('Registration data:', {
+                            name,
+                            email,
+                            password,
+                            repeatPassword,
+                            subscribe,
+                        });
+                        setName('');
+                        setEmail('');
+                        setPassword('');
+                        setRepeatPassword('');
+                        setSubscribe(false);
+                        setError('');
+                        setShowAlert(true);
+                        setRedirecting(true);
+                        const timer = setInterval(() => {
+                            setCountdown((prevCountdown) => prevCountdown - 1);
+                        }, 1000);
+                        setShowAlert(true);
+                        setTimeout(() => {
+                            navigate('/login');
+                            clearInterval(timer);
+                        }, 5000);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     };
 
     return (
-        <MDBContainer fluid className='registration'>
-            <MDBCard className="text-black m-5" style={{ borderRadius: '25px' }}>
-                <MDBCardBody className='cardB'>
-                    <MDBRow>
+        <MDBContainer fluid className="registration">
+            <MDBCard className="text-black m-5">
+                <MDBCardBody className="cardB">
+                    <MDBRow className="rowB">
                         <MDBCol md="10" lg="6" className="colo">
                             <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
                             <div className="d-flex flex-row align-items-center mb-4">
@@ -65,19 +130,19 @@ export const Registration = () => {
                                     onChange={(e) => handleInputChange(e, setName)}
                                     labelClass="customLabel"
                                     label="Your name"
-                                    required="reqired"
+                                    required="required"
                                 />
                             </div>
                             <div className="d-flex flex-row align-items-center mb-4">
                                 <MDBIcon fas icon="envelope me-3" size="lg" />
                                 <MDBInput
                                     id="form2"
-                                    type="email"
+                                    type="text"
                                     value={email}
                                     onChange={(e) => handleInputChange(e, setEmail)}
                                     labelClass="customLabel"
                                     label="Your e-mail"
-                                    required="reqired"
+                                    required="required"
                                 />
                             </div>
                             <div className="d-flex flex-row align-items-center mb-4">
@@ -88,8 +153,8 @@ export const Registration = () => {
                                     value={password}
                                     onChange={(e) => handleInputChange(e, setPassword)}
                                     labelClass="customLabel"
-                                    label="Your passwrod"
-                                    required="reqired"
+                                    label="Your password"
+                                    required="required"
                                 />
                             </div>
                             <div className="d-flex flex-row align-items-center mb-4">
@@ -101,7 +166,7 @@ export const Registration = () => {
                                     onChange={(e) => handleInputChange(e, setRepeatPassword)}
                                     labelClass="customLabel"
                                     label="Repeat your password"
-                                    required="reqired"
+                                    required="required"
                                 />
                             </div>
                             <div className="mb-4">
@@ -114,6 +179,17 @@ export const Registration = () => {
                                     onChange={handleCheckboxChange}
                                 />
                             </div>
+                            {showAlert && (
+                                <Alert variant="success" onClose={() => setShowAlert(false)} >
+                                    User created successfully!
+                                </Alert>
+                            )}
+                            {error && (
+                                <Alert className='alertDanger' variant="danger" onClose={() => setError('')} >
+                                    {error}
+                                </Alert>
+                            )}
+                            {redirecting && <p style={{ color: 'red' }}>Redirecting to the login page in {countdown} seconds...</p>}
                             <MDBBtn className="mb-4 register-button" size="lg" onClick={handleSubmit}>
                                 Register
                             </MDBBtn>
@@ -124,6 +200,6 @@ export const Registration = () => {
                     </MDBRow>
                 </MDBCardBody>
             </MDBCard>
-        </MDBContainer>
+        </MDBContainer >
     );
 };

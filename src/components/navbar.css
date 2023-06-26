@@ -34,6 +34,10 @@
 
 body {
     caret-color: transparent;
+
+    [type="text"] {
+        caret-color: brown;
+    }
 }
 
 .navbar {
@@ -53,13 +57,13 @@ body {
 .loginlink {
     justify-self: flex-start;
     text-decoration: none;
-    color: wheat;
-    font-size: 20px;
+    color: white;
+    font-size: 18px;
 
 }
 
 .loginlink:hover {
-    color: white
+    color: wheat
 }
 
 .links {
@@ -86,6 +90,8 @@ body {
     z-index: 999;
     color: white;
     margin-right: 20px;
+
+    align-self: center;
 
 
 }
@@ -116,7 +122,7 @@ body {
     text-decoration: none;
     color: white;
     font-size: 40px;
-
+    align-self: center;
     z-index: 1000;
 
     margin-left: 20px;
@@ -206,11 +212,36 @@ body {
     color: wheat;
 }
 
-/* Responsive Styles */
+.userProfile {
+    display: flex;
+    flex-wrap: wrap;
+    width: 160px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.userProfile svg {
+    margin-right: 10px;
+    color: gold
+}
+
+.userProfile span {
+    margin-right: 10px;
+    color: gold
+}
+
+.userN:hover {
+    color: white;
+    cursor: pointer;
+}
+
+
+
 
 @media screen and (max-width: 1200px) {
     .navbar {
-        flex-direction: column;
+        flex-direction: row;
         height: auto;
     }
 
@@ -219,6 +250,18 @@ body {
         border: none;
         margin-top: 20px;
         z-index: 999;
+    }
+
+    .loginlink {
+        margin-right: 100px;
+        align-self: center;
+
+
+    }
+
+    .eShop {
+        align-self: flex-start;
+
     }
 
     .links a {
@@ -231,15 +274,11 @@ body {
     .Menu button {
 
         position: fixed;
-        left: 20px;
-        top: 20px
+        left: 25px;
+        top: 15px
     }
 
-    .Menucollapsed {
-        position: absolute;
-        top: 0;
-        left: 10px;
-    }
+
 
 
 
@@ -265,17 +304,19 @@ body {
         color: white;
         margin-right: 20px;
         position: fixed;
-        top: 30px;
-        right: 20px
+        top: 25px;
+        right: 15px
     }
 
     .cartItemCount {
         position: absolute;
-        top: 1px;
-        right: 2px;
+        top: 0px;
+        right: 0px;
+        padding: 2px 5px;
 
 
     }
+
 
 
 }

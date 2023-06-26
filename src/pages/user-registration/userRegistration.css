@@ -1,20 +1,38 @@
 .registration {
     display: flex;
-    position: absolute;
-    margin-top: 100px;
-    width: 65%;
-    padding: 0px;
 
+    width: 100vw;
+    padding: 0px;
+    height: 100vh;
+
+}
+
+.m-5 {
+    margin: 0px !important;
+    margin-top: 50px !important;
 
 }
 
 .cardB {
-    box-shadow: 0px 1px 2px wheat,
-        0px 2px 4px wheat,
-        0px 4px 8px wheat,
-        0px 8px 16px wheat;
-    border-radius: 25px;
+    display: flex;
+
 }
+
+.rowB {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+
+
+
+
 
 :not(.btn-check)+.btn:active {
     box-shadow: 0px 1px 2px wheat,
@@ -57,16 +75,12 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-
-
+    width: max-content;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
-.d-flex.flex-row.align-items-center.mb-4 {
 
-
-
-    margin-bottom: 0px !important;
-}
 
 .fa-lg {
     margin-bottom: 25px;
@@ -86,8 +100,24 @@
         0px 8px 16px wheat;
 }
 
-@media (max-width: 1400px) {
-    .container-fluid {
-        width: 100%;
+.alertDanger {
+    margin-left: 35px;
+}
+
+
+@media (max-width: 1000px) {
+    .rowB {
+        flex-wrap: wrap;
+    }
+
+    .registration {
+        height: 100%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .registration {
+        width: max-content;
+        margin-top: 30px;
     }
 }

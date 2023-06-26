@@ -127,10 +127,25 @@
 }
 
 @media (max-width: 1400px) {
+
+    .mb4,
     .mb3 {
-        margin-top: 0px;
-        margin-left: 20px;
+        width: 100vh;
+        margin: 0px;
+
+
     }
+
+    .mb4 {
+        margin-top: 100px;
+    }
+
+    .rowP {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 }
 
 @media (max-width: 1000px) {
@@ -143,6 +158,17 @@
 
     .mb4,
     .mb3 {
-        width: 270px;
+        width: 100vh;
+        margin: 0px;
+
+
     }
+
+
+
+    .mb4 {
+        margin-top: 100px;
+    }
+
+
 }

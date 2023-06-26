@@ -321,13 +321,19 @@
     }
 
     .descript {
-        font-size: 18px;
         width: 250px;
         height: 250px;
     }
 
+    .descript p,
+    ul,
+    h3 {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
     .price {
-        font-size: 25px;
+        font-size: 18px;
         width: 150px;
         height: 60px;
 
@@ -336,13 +342,13 @@
     }
 
 
-
     .addToCartBttn1 {
 
 
         position: fixed;
         height: 40px;
         width: 100px;
+        font-size: 12px;
 
     }
 

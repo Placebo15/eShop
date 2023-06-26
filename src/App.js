@@ -10,6 +10,7 @@ import { About } from "./pages/About/about";
 import { Payment } from "./payment/paymentmethod";
 import { Registration } from "./pages/user-registration/userRegistration";
 import { Login } from "./pages/user-login/userLogin";
+import { ProfilePage } from "./pages/profile-page/profilePage";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/phones" element={<Category category="Phones" />} />
             <Route path="/clothes" element={<Category category="Clothes" />} />
             <Route path="/laptops" element={<Category category="Laptops" />} />
+            <Route path="/userprofile" element={<ProfilePage />} />
             <Route path="/about" element={<About />} />
             <Route path="/payment" element={<Payment totalAmount={Cart.totalAmount} />} />
             <Route path="/registration" element={<Registration />} />
