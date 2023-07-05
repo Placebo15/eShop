@@ -36,7 +36,7 @@ export const ProfilePage = () => {
             try {
                 const loggedInUser = user.username;
                 const response = await fetch(
-                    `http://localhost:3001/orders?customer=${loggedInUser}`
+                    `https://1f79-87-116-163-76.ngrok-free.app/orders?customer=${loggedInUser}`
                 );
                 const data = await response.json();
                 setPurchasedItems(data);

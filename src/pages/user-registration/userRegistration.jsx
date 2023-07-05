@@ -57,7 +57,7 @@ export const Registration = () => {
             return;
         }
 
-        fetch('https://5426-87-116-163-76.ngrok-free.app/check-existing', {
+        fetch('https://1f79-87-116-163-76.ngrok-free.app/check-existing', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export const Registration = () => {
                 }
 
                 const query = `INSERT INTO users (name, email, password) VALUES ('${name}', '${email}', '${password}')`;
-                fetch('https://5426-87-116-163-76.ngrok-free.app/insert', {
+                fetch('https://1f79-87-116-163-76.ngrok-free.app/insert', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -27,7 +27,7 @@ export const Login = () => {
             console.log('Logging in with name:', name);
             console.log('Logging in with password:', password);
 
-            fetch('https://5426-87-116-163-76.ngrok-free.app/logs', {
+            fetch('https://1f79-87-116-163-76.ngrok-free.app/logs', {
                 method: 'POST',
                 headers: {
                     "ngrok-skip-browser-warning": "true",
