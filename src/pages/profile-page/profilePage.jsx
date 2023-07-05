@@ -19,12 +19,17 @@ import './profilePage.css'
 import React, { useState, useEffect, useContext } from 'react';
 import { PRODUCTS } from '../../products';
 import { ShopContext } from '../../context/shop-context';
+import { useNavigate } from 'react-router-dom';
+
+
 
 
 
 export const ProfilePage = () => {
     const [purchasedItems, setPurchasedItems] = useState([]);
     const { user } = useContext(ShopContext);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         const fetchPurchasedItems = async () => {
@@ -161,18 +166,28 @@ export const ProfilePage = () => {
                                 <MDBCard className="purchaseCard2">
                                     <MDBCardText className="titleP"><span className="text-primary font-italic me-1"></span> Purchase history</MDBCardText>
                                     <MDBCardBody className='purchaseItems'>
-                                        {purchasedItems.map((item, index) => {
-                                            const product = PRODUCTS.find((product) => product.productName === item.product_name);
-                                            return (
-                                                <div key={index}>
-                                                    <p>Product Name: {item.product_name}</p>
-                                                    <p>Quantity: {item.quantity}</p>
-                                                    <p>Order Date: {item.order_date}</p>
-                                                    {product && <img src={product.productImage} alt='' width="100px" height="100px" />}
-                                                    <hr />
-                                                </div>
-                                            );
-                                        })}
+                                        {purchasedItems.length === 0 ? (
+                                            <MDBRow>
+                                                <p>No purchases yet!</p>
+                                            </MDBRow>
+                                        ) : (
+                                            purchasedItems.map((item, index) => {
+                                                const product = PRODUCTS.find(
+                                                    (product) => product.productName === item.product_name
+                                                );
+                                                return (
+                                                    <div className='listedProducts' key={index} onClick={() => navigate(`/products/${product.id}`)}>
+                                                        <p>Product Name: {item.product_name}</p>
+                                                        <p>Quantity: {item.quantity}</p>
+                                                        <p>Order Date: {item.date}</p>
+                                                        {product && (
+                                                            <img src={product.productImage} alt='' width="150px" height="150px" />
+                                                        )}
+                                                        <hr />
+                                                    </div>
+                                                );
+                                            })
+                                        )}
                                     </MDBCardBody>
                                 </MDBCard>
                             </MDBCol>

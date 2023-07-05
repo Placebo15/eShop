@@ -1,7 +1,7 @@
 .login {
     background-color: white;
     width: 100vw;
-    padding: 50px;
+    padding: 100px;
     margin-top: 80px;
     display: flex;
     align-items: center;
@@ -10,7 +10,7 @@
         0px 2px 4px wheat,
         0px 4px 8px wheat,
         0px 8px 16px wheat;
-    height: 100vh;
+
 
 }
 
@@ -30,12 +30,15 @@
 .rowL {
     padding-left: 100px;
     padding-right: 100px;
+
 }
 
 .d-flex.align-items-center.my-4 {
 
     justify-content: center;
 }
+
+
 
 @media (max-width: 1400px) {
 
@@ -44,10 +47,26 @@
     }
 }
 
-@media (max-width: 800px) {
+
+@media (max-width: 769px) {
     .d-flex.justify-content-between.mx-4.mb-4 {
         gap: 20px
     }
 
+
+
+    .login {
+        height: 100%;
+    }
+
+
+}
+
+@media (max-width: 460px) {
+    .rowL {
+        padding-left: 0px;
+        padding-right: 0px;
+
+    }
 
 }

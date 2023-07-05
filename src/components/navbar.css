@@ -214,10 +214,10 @@ body {
 
 .userProfile {
     display: flex;
-    flex-wrap: wrap;
-    width: 160px;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+
 
 }
 
@@ -242,7 +242,7 @@ body {
 @media screen and (max-width: 1200px) {
     .navbar {
         flex-direction: row;
-        height: auto;
+
     }
 
     .links {
@@ -253,14 +253,9 @@ body {
     }
 
     .loginlink {
-        margin-right: 100px;
+
         align-self: center;
 
-
-    }
-
-    .eShop {
-        align-self: flex-start;
 
     }
 
@@ -278,10 +273,6 @@ body {
         top: 15px
     }
 
-
-
-
-
     .Menu.collapsed .categoryContent {
         animation: slide-out-left 0.5s both;
 
@@ -293,19 +284,6 @@ body {
         display: flex;
         width: 250px;
 
-    }
-
-
-
-
-    .shopcart {
-
-        z-index: 999;
-        color: white;
-        margin-right: 20px;
-        position: fixed;
-        top: 25px;
-        right: 15px
     }
 
     .cartItemCount {
@@ -326,6 +304,15 @@ body {
     .Menu .categoryContent {
         width: 100vw;
     }
+
+    .menuButton,
+    .eShop a {
+        font-size: 24px;
+    }
+
+
+
+
 }
 
 @keyframes slide-in-left {

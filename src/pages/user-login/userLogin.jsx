@@ -19,27 +19,28 @@ export const Login = () => {
         event.preventDefault();
 
         if (forgotPassword) {
-            // Handle forgot password form submission
-            // Send a password reset email or perform any other necessary actions
             console.log('Forgot Password - Email:', resetEmail);
 
-            // Reset the form and state after submission
             setResetEmail('');
             setForgotPassword(false);
         } else {
-            fetch('http://localhost:3001/logs', {
+            console.log('Logging in with name:', name);
+            console.log('Logging in with password:', password);
+
+            fetch('https://5426-87-116-163-76.ngrok-free.app/logs', {
                 method: 'POST',
                 headers: {
+                    "ngrok-skip-browser-warning": "true",
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ name, password }),
             })
                 .then((response) => response.json())
                 .then((result) => {
+                    console.log('Login result:', result);
+
                     if (result.success) {
                         setUser({ username: name });
-
-
                         navigate('/');
                     } else {
                         setError('Invalid username or password');
@@ -50,6 +51,7 @@ export const Login = () => {
                 });
         }
     };
+
 
     return (
         <MDBContainer fluid className="login">

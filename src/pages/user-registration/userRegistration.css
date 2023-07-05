@@ -1,9 +1,8 @@
 .registration {
     display: flex;
-
     width: 100vw;
     padding: 0px;
-    height: 100vh;
+
 
 }
 
@@ -112,12 +111,16 @@
 
     .registration {
         height: 100%;
+        width: 100vw;
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 470px) {
     .registration {
-        width: max-content;
+
+        width: 200vw;
         margin-top: 30px;
+        padding: 0px !important;
+
     }
 }

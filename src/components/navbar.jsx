@@ -104,12 +104,14 @@ export const Navbar = () => {
             <div className="loginAndCart">
                 {user ? (
                     <div className="userProfile">
-                        <FaUser />
-                        <span className='userN' onClick={() => navigate('/userprofile')}  >{user.username}</span>
-                        <Link className="loginlink" onClick={handleLogout}>
-                            LogOut
-                        </Link>
-
+                        <div>    <FaUser />
+                            <span className='userN' onClick={() => navigate('/userprofile')}  >{user.username}</span>
+                        </div>
+                        <div>
+                            <Link className="loginlink" onClick={handleLogout}>
+                                LogOut
+                            </Link>
+                        </div>
                     </div>
 
                 ) : (
