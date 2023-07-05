@@ -11,7 +11,6 @@ const db = mysql.createConnection({
     database: "purchase_history"
 });
 
-
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -52,10 +51,6 @@ app.post("/logs", (req, res) => {
     );
 });
 
-
-
-
-
 app.post("/check-existing", (req, res) => {
     const { name, email } = req.body;
 
@@ -71,7 +66,6 @@ app.post("/check-existing", (req, res) => {
         }
     });
 });
-
 
 app.get('/orders', (req, res) => {
     const { customer } = req.query;
@@ -90,7 +84,6 @@ app.get('/orders', (req, res) => {
     });
 });
 
-
-app.listen(3001, () => {
+app.listen(3001, '0.0.0.0', () => {
     console.log("Server running on port 3001");
 });
